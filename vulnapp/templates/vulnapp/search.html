@@ -1,0 +1,35 @@
+{% extends 'vulnapp/base.html' %}
+
+{% block title %}Поиск - Workshop App{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0"><i class="fas fa-search me-2"></i>Поиск</h4>
+            </div>
+            <div class="card-body">
+                <form method="get" action="{% url 'search' %}" class="mb-4">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control" placeholder="Введите поисковый запрос..." value="{{ request.GET.q }}">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-search me-2"></i>Поиск
+                        </button>
+                    </div>
+                </form>
+
+                {% if query %}
+                    {% autoescape off %}
+                    {{ query }}
+                    {% endautoescape %}
+                {% else %}
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i>Введите поисковый запрос для начала поиска.
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
