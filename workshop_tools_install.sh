@@ -24,7 +24,6 @@ go install github.com/tomnomnom/qsreplace@latest
 mkdir -p ~/.gf
 git clone https://github.com/1ndianl33t/Gf-Patterns.git
 cp Gf-Patterns/*.json ~/.gf
-
-mv $GOPATH/bin/* /usr/bin/
+sudo mv go/bin/* /usr/bin/
 
 echo "Done!"
